@@ -1,9 +1,12 @@
+//core modules
+const path=require("path")
 //External modules
 const express=require("express")
 //local modules
 const userRouter=require("./Routes/userRouter")
 const registerRouter=require("./Routes/registerRouter")
 const dataSubmit=require("./Routes/dataSubmit")
+const rootDirectory=require("./utils/pathutils")
 //app
 const app=express();
 app.use(express.urlencoded())
@@ -33,9 +36,11 @@ app.use(dataSubmit)
 //         </form>
 //         `)
 // })
+
 app.use((req,res,next)=>{
-    res.status(404).send("<h1>Error 404: Page not found");
-    next();
+    // res.status(404).sendFile(path.join(__dirname,"views","404.html"));
+    res.status(404).sendFile(path.join(rootDirectory,"views","404.html"));
+    
 })
 app.listen(4000,()=>{
     console.log("server is running on port 4000");
