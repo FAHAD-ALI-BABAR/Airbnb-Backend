@@ -7,7 +7,7 @@ const userRouter=require("./Routes/userRouter")
 const registerRouter=require("./Routes/registerRouter")
 const dataSubmit=require("./Routes/dataSubmit")
 const rootDirectory=require("./utils/pathutils")
-//app
+//apppp
 const app=express();
 app.use(express.urlencoded())
 
